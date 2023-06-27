@@ -13,62 +13,62 @@
 **Multiple-Choice Questions:**
 
 1. Explain the difference between `wp_query()` and `get_posts()` in WordPress.
-   - [ ] a) `wp_query()` is used for complex queries, while `get_posts()` is used for simpler queries.
+   - [#] a) `wp_query()` is used for complex queries, while `get_posts()` is used for simpler queries.
    - [ ] b) `wp_query()` returns an instance of `WP_Query`, while `get_posts()` returns an array of post objects.
    - [ ] c) `wp_query()` allows more customization options, while `get_posts()` is simpler to use.
    - [ ] d) There is no difference; they can be used interchangeably.
 
 2. What is the purpose of WordPress transients? Give an example use case.
-   - [ ] a) Transients are used to store temporary data across requests.
+   - [#] a) Transients are used to store temporary data across requests.
    - [ ] b) Transients are used to secure communication between the server and the database.
    - [ ] c) Transients are used to handle user authentication in WordPress.
    - [ ] d) Transients are used to optimize database queries in WordPress.
 
 3. Which of the following statements about custom post types in WordPress is true?
    - [ ] a) Custom post types allow you to create custom database tables in WordPress.
-   - [ ] b) Custom post types are a way to extend WordPress beyond blog posts and pages.
+   - [#] b) Custom post types are a way to extend WordPress beyond blog posts and pages.
    - [ ] c) Custom post types are only used for displaying images and media files in WordPress.
    - [ ] d) Custom post types are pre-defined post formats available in WordPress.
 
 4. In WordPress, which file is responsible for displaying the content of a single blog post?
-   - [ ] a) `single.php`
+   - [#] a) `single.php`
    - [ ] b) `page.php`
    - [ ] c) `archive.php`
    - [ ] d) `index.php`
 
 5. How can you optimize the performance of a WordPress website? Select all that apply.
-   - [ ] a) Caching
-   - [ ] b) Minification of CSS and JavaScript files
-   - [ ] c) Using a CDN (Content Delivery Network)
-   - [ ] d) Implementing lazy loading of images
+   - [#] a) Caching
+   - [#] b) Minification of CSS and JavaScript files
+   - [#] c) Using a CDN (Content Delivery Network)
+   - [#] d) Implementing lazy loading of images
 
 6. What is the difference between a shortcode and a widget in WordPress?
    - [ ] a) Shortcodes are used to create dynamic content, while widgets are used for static content.
-   - [ ] b) Shortcodes are used in posts and pages, while widgets are used in sidebars and other widget areas.
+   - [#] b) Shortcodes are used in posts and pages, while widgets are used in sidebars and other widget areas.
    - [ ] c) Shortcodes can only be used by administrators, while widgets are available to all users.
    - [ ] d) There is no difference; they can be used interchangeably.
 
 7. What are the main security considerations when developing a WordPress plugin or theme? Select all that apply.
-   - [ ] a) Validating and sanitizing user input
-   - [ ] b) Escaping output data
-   - [ ] c) Using secure coding practices
+   - [#] a) Validating and sanitizing user input
+   - [#] b) Escaping output data
+   - [#] c) Using secure coding practices
    - [ ] d) Hiding the WordPress version number
 
 8. Which of the following statements about the `wpdb` class in WordPress is true?
    - [ ] a) The `wpdb` class is used to create custom database tables in WordPress.
-   - [ ] b) The `wpdb` class is used to interact with the WordPress database using SQL queries.
+   - [#] b) The `wpdb` class is used to interact with the WordPress database using SQL queries.
    - [ ] c) The `wpdb` class is used to implement AJAX functionality in WordPress.
    - [ ] d) The `wpdb` class is used to handle user authentication in WordPress.
 
 9. What is the purpose of the `__construct()` method in a PHP class?
    - [ ] a) It is used to define class constants.
-   - [ ] b) It is used to initialize class properties.
+   - [#] b) It is used to initialize class properties.
    - [ ] c) It is used to define static methods.
    - [ ] d) It is used to declare class interfaces.
 
 10. Which of the following statements about namespaces in PHP is true?
     - [ ] a) Namespaces are used to define global variables.
-    - [ ] b) Namespaces are used to organize classes, functions, and constants into logical groups.
+    - [#] b) Namespaces are used to organize classes, functions, and constants into logical groups.
     - [ ] c) Namespaces are used to define CSS styles for HTML elements.
     - [ ] d) Namespaces are used to define database tables in WordPress.
 
@@ -103,6 +103,101 @@ Implement a WordPress plugin using an object-oriented approach that manages a li
    - `get_average_salary()`: Returns the average salary of all employees in the company.
 
 Please provide the complete code for the plugin implementation, including the `Employee` and `Company` classes within the plugin file.
+
+
+<!-- Create a class named `Employee` with the following properties:
+   - `name` (string): The name of the employee.
+   - `position` (string): The position of the employee.
+   - `salary` (float): The salary of the employee.
+
+2. Implement the following methods in the `Employee` class:
+   - `__construct()`: Initializes the `name`, `position`, and `salary` properties.
+   - `get_name()`: Returns the name of the employee.
+   - `get_position()`: Returns the position of the employee.
+   - `get_salary()`: Returns the salary of the employee.
+   - `get_employee_info()`: Returns a formatted string with the employee's name, position, and salary.
+
+
+Please provide the complete code for the plugin implementation, including the `Employee` and `Company` classes within the plugin file. -->
+
+class Employee{
+    public $name;
+    public $position;
+    public $salary;
+
+    public function __construct($name, $position, $salary){
+
+        $this->name = $name;
+        $this->position = $position;
+        $this->salary = $salary;
+    }
+
+    <!-- Returns the name of the employee. -->
+    public function get_name(){
+        return $this->name;
+    }
+
+    <!-- Returns the position of the employee. -->
+    public function get_position(){
+        return $this->position;
+    }
+
+    <!-- Returns the salary of the employee. -->
+    public function get_salary(){
+        return $this->salary;
+    }
+
+    <!-- Returns a formatted string with the employee's name, position, and salary. -->
+    public function get_employee_info(){
+        return 'Name:' . $this->name . ' ,Position:' . $this->position . ' ,Salary:' . $this->salary;
+    }
+
+}
+
+<!-- 3. Create an additional class named `Company` with the following properties:
+   - `employees` (array): An array to store instances of the `Employee` class.
+
+4. Implement the following methods in the `Company` class:
+   - `add_employee($employee)`: Adds an employee object to the `employees` array.
+   - `get_employees()`: Returns the array of employees in the company.
+   - `get_employee_count()`: Returns the total number of employees in the company.
+   - `get_average_salary()`: Returns the average salary of all employees in the company. -->
+
+class Company{
+    public $employees;
+    public function __construct() {
+        $this->employees = array();
+    }
+    <!-- Adds an employee object to the `employees` array. -->
+    public function add_employee($employee){
+        $this->employees[] = $employee;
+    } 
+
+    <!-- Returns the array of employees in the company. -->
+    public function get_employees(){
+        return $this->employees;
+    }
+
+    <!-- Returns the total number of employees in the company. -->
+    public function get_employee_count(){
+        return count($this->employees);
+    }
+
+    <!-- Returns the average salary of all employees in the company. -->
+    public function get_average_salary(){
+        $totalSalary = 0;
+        foreach ($this->employees as $employee) {
+            $totalSalary += $employee->get_salary();
+        }
+
+        return $totalSalary/count($this->employees);
+    }
+}
+
+$employee = new Employee();
+$company = new Company();
+
+
 
 **Submission:**
 - Modify the `README.md` file in your forked repository to include your answers to the multiple-choice questions and your code solution to the OOP code challenge.
